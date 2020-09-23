@@ -1,0 +1,45 @@
+﻿<Window x:Class="_7DaysServer_InfoMonitor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_7DaysServer_InfoMonitor"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="500">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="4"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="4"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Column="1" Grid.Row="1" FontSize="12" Text="Last updated:" HorizontalAlignment="Right" />
+        <TextBlock Grid.Column="3" Grid.Row="1" FontSize="12" Text="{Binding LastUpdatedTime}" />
+
+        <TextBlock Grid.Column="1" Grid.Row="3" FontSize="12" Text="GameTime:" HorizontalAlignment="Right" />
+        <TextBlock Grid.Column="3" Grid.Row="3" FontSize="12" Text="{Binding GameTime}" />
+
+        <TextBlock Grid.Column="1" Grid.Row="5" FontSize="12" Text="Online players:" HorizontalAlignment="Right" />
+        <ScrollViewer Grid.Column="3" Grid.Row="5">
+            <ListView ItemsSource="{Binding OnlinePlayers}" />
+        </ScrollViewer>
+
+        <ScrollViewer Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="7">
+            <ListView ItemsSource="{Binding Logs}" />
+        </ScrollViewer>
+
+    </Grid>
+</Window>
